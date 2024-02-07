@@ -1,3 +1,5 @@
-a=10
-if a==10:
-  print("a is 10")
+password_correct=False
+if password_correct:
+  print("Here is your money")
+else:
+  print("Wrong password")
