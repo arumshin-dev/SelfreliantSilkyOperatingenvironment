@@ -1,9 +1,15 @@
-days_of_week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-print(days_of_week)
-print(days_of_week.pop())
-days_of_week.append("Sunday")
-print(days_of_week)
-
-days=("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
-print(days)
-print(days[-2])
+player={
+  'name':'arum',
+  'age':12,
+  'alive':True,
+  'fav_food':["🍕","🍔"],
+  'friens':['a','b','c']
+}
+print(player)
+print(player.get('age'))
+print(player.get('fav_food'))
+player.pop('age')
+player['xp']=1500
+print(player)
+player['fav_food'].append("🍜")
+print(player.get('fav_food'))
