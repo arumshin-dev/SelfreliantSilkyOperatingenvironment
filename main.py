@@ -1,5 +1,7 @@
-def say_hello(name="anonymous"):
+def plus(a=0,b=0):
   
-  print(f"Hi how are u {name}?")
-say_hello("arum")
-say_hello()
+  print(f"{a} + {b} =",a+b)
+  print(f"{a} + {b} = {a+b}")
+
+plus()
+plus(1,2)
