@@ -1,15 +1,13 @@
-player={
-  'name':'arum',
-  'age':12,
-  'alive':True,
-  'fav_food':["🍕","🍔"],
-  'friens':['a','b','c']
-}
-print(player)
-print(player.get('age'))
-print(player.get('fav_food'))
-player.pop('age')
-player['xp']=1500
-print(player)
-player['fav_food'].append("🍜")
-print(player.get('fav_food'))
+websites = (
+  "google.com",
+  "airbnb.com",
+  "https://twitter.com",
+  "facebook.com",
+  "https://tiktok.com"
+)
+
+for website in websites:
+  if not website.startswith("https://"):
+    website = f"https://{website}"
+  print(website)
+  
