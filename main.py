@@ -1,30 +1,39 @@
-class Puppy:
-  
-  def __init__(self, name, color):
+class Dog:
+  def __init__(self, name, age, color):
     self.name = name
-    self.age = 0.1
+    self.age = age
     self.color = color
+
+  def sleep(self):
+    print("zzzz....")
     
-  def __str__(self):
-    return f"Puppy name: {self.name}, age: {self.age}, color: {self.color}"
+class GuardDog(Dog):
+  def __init__(self, name, color):
+    super().__init__(name, 5, color)
+    self.aggresive = True
+
+  def rrrrr(self):
+      print("stay away!")
+
+class Puppy(Dog):
+  def __init__(self, name, color):
+    super().__init__(name, 0.1, color)
+    self.spoiled = True
     
   def woof_woof(self):
     print(f"{self.name} woof woof!")
 
-  def introduce(self):
-    self.woof_woof()
-    print(f"Hi, my name is {self.name} and I'm a {self.color} puppy.")
     
 ruffus = Puppy(
   name="Ruffus", 
   color="brown",
 )
-bibi = Puppy(
+bibi = GuardDog(
   name="Bibi", 
   color="white",
 )
 
 print(ruffus, bibi)
-ruffus.introduce()
-bibi.introduce()
+ruffus.sleep()
+bibi.sleep()
 
