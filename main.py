@@ -29,11 +29,16 @@ for job in jobs:
   region = region.text
   print(title, company, position, region,"-----\n",)
 
-'''letters = ["a", "b", "c"]
-a,b,c = letters
+'''
+letters = ["a", "b", "c"]
+a,b,c = letters #배열 안의 개수 변수 순으로 값 집어넣는다. 개수 같아야함
 print(a)#a
 print(b)#b
 print(c)#c
+d,e,_ = letters
+print(d)
+print(e)
+print(_)
 '''
 
            
