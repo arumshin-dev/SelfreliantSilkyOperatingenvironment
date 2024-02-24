@@ -20,15 +20,27 @@ jobs = soup.find("section", class_="jobs").find_all("li")[1:-1]
 
 #print(jobs)
 
+all_jobs = []#리스트 생성
+
 for job in jobs:
   title = job.find("span", class_="title").text
   #region = job.find("span", class_="region").text
   company, position, region = job.find_all("span", class_="company")
-  company = company.text
-  position = position.text
-  region = region.text
-  print(title, company, position, region,"-----\n",)
+  # company = company.text
+  # position = position.text
+  # region = region.text
+  # print(title, company, position, region,"-----\n",)
+  url = job.find("div", class_="tooltip--flag-logo").next_sibling["href"]
+  job_data = {
+    'title': title,
+    'company': company.text,
+    'position': position.text,
+    'region': region.text,
+    'url':f"https://weworkremotely.com{url}"
+  }
+  all_jobs.append(job_data)
 
+print(all_jobs)
 '''
 letters = ["a", "b", "c"]
 a,b,c = letters #배열 안의 개수 변수 순으로 값 집어넣는다. 개수 같아야함
