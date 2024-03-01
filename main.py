@@ -51,3 +51,30 @@ content = page.content()
 play.stop()  #메모리 누수 방지 위하여 꺼주기
 
 soup = BeautifulSoup(content, "html.parser")
+#soup 변수에서 job에 대한걸 찾아서 jobs리스트에 넣는다.
+jobs = soup.find_all("div",class_="JobCard_container__FqChn")
+#오브젝트를 담을 변수를 생성
+jobs_db = []
+#for 반복문을 통해 jobs에서 필요한 데이터를 가져온다.
+for job in jobs:
+    #a태그에 href정보를 link 변수에 넣는다.
+    link = f"https://www.wanted.co.kr{job.find('a')['href']}"
+    #strong태그에 text정보를 title 변수에 넣는다.
+    title = job.find("strong",class_="JobCard_title__ddkwM").text
+    #span태그에 text정보를 company_name 변수에 넣는다.
+    company_name = job.find("span",class_="JobCard_companyName__vZMqJ").text
+    #span태그에 text정보를 reward 변수에 넣는다.
+    reward = job.find("span",class_="JobCard_reward__sdyHn").text
+    #오브젝트화 하여 데이터를 넣는다.
+    job = {
+        "title" : title,
+        "company_name" : company_name,
+        "reward" : reward,
+        "link" : link
+    }
+    #jobs_db에 job을 추가한다.
+    jobs_db.append(job)
+#확인을 위해 console에 보여준다.
+print(jobs_db)
+#확인을 위해 jobs_db 개수를 console에 보여준다.
+print(len(jobs_db))
