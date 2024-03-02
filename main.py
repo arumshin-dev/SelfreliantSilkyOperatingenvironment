@@ -1,6 +1,7 @@
 from playwright.sync_api import sync_playwright
 import time
 from bs4 import BeautifulSoup
+import csv
 
 #동기화 방식으로 사용을 시작합니다.
 play = sync_playwright().start()
@@ -75,6 +76,12 @@ for job in jobs:
     #jobs_db에 job을 추가한다.
     jobs_db.append(job)
 #확인을 위해 console에 보여준다.
-print(jobs_db)
+# print(jobs_db)
 #확인을 위해 jobs_db 개수를 console에 보여준다.
-print(len(jobs_db))
+# print(len(jobs_db))
+
+file = open("jobs.csv", "w", encoding="utf-8", newline = "")
+writter = csv.writer(file)
+writter.writerow(["Title","Company","Reward","Link"])
+for job in jobs_db:
+    writter.writerow(job.values())
