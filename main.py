@@ -1,4 +1,6 @@
 from flask import Flask, render_template, request
+# from extractors.indeed import extract_indeed_jobs
+from extractors.wwr import extract_wwr_jobs
 
 #Flask 객체 생성
 app = Flask("JobScrapper")
@@ -15,7 +17,11 @@ def home():
 def search():
   # print(request.args)
   keyword = request.args.get("keyword")
-  return render_template("search.html", keyword=keyword)
+  # indeed = extract_indeed_jobs(keyword)
+  wwr = extract_wwr_jobs(keyword)
+  # jobs = indeed + wwr
+  jobs = wwr
+  return render_template("search.html", keyword=keyword, jobs=jobs)
 
 #ip주소를 0.0.0.0으로 설정해줌 서버실행
 app.run("0.0.0.0")
