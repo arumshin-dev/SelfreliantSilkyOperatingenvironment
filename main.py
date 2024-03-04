@@ -9,7 +9,7 @@ app = Flask("JobScrapper")
 def home():
   #return "Hello World"
   # return "<h1>hey there!</h1><a href='/hello'>go to hello</a>"
-  return render_template("home.html")
+  return render_template("home.html", name="arum")
 
 @app.route("/hello")
 def hello():
