@@ -11,9 +11,9 @@ def home():
   # return "<h1>hey there!</h1><a href='/hello'>go to hello</a>"
   return render_template("home.html", name="arum")
 
-@app.route("/hello")
-def hello():
-  return "hello you"
+@app.route("/search")
+def search():
+  return render_template("search.html")
 
 #ip주소를 0.0.0.0으로 설정해줌 서버실행
 app.run("0.0.0.0")
