@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 
 #Flask 객체 생성
 app = Flask("JobScrapper")
@@ -8,7 +8,8 @@ app = Flask("JobScrapper")
 #function 루트 함수
 def home():
   #return "Hello World"
-  return "<h1>hey there!</h1><a href='/hello'>go to hello</a>"
+  # return "<h1>hey there!</h1><a href='/hello'>go to hello</a>"
+  return render_template("home.html")
 
 @app.route("/hello")
 def hello():
