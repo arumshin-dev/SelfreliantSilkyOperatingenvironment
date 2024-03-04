@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 #Flask 객체 생성
 app = Flask("JobScrapper")
@@ -13,7 +13,9 @@ def home():
 
 @app.route("/search")
 def search():
-  return render_template("search.html")
+  # print(request.args)
+  keyword = request.args.get("keyword")
+  return render_template("search.html", keyword=keyword)
 
 #ip주소를 0.0.0.0으로 설정해줌 서버실행
 app.run("0.0.0.0")
