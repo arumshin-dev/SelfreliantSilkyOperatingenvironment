@@ -8,7 +8,11 @@ app = Flask("JobScrapper")
 #function 루트 함수
 def home():
   #return "Hello World"
-  return "hey there!"
+  return "<h1>hey there!</h1><a href='/hello'>go to hello</a>"
+
+@app.route("/hello")
+def hello():
+  return "hello you"
 
 #ip주소를 0.0.0.0으로 설정해줌 서버실행
 app.run("0.0.0.0")
