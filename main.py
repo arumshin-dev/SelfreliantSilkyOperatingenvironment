@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 # from extractors.indeed import extract_indeed_jobs
 from extractors.wwr import extract_wwr_jobs
 
@@ -21,6 +21,8 @@ def search():
   # print(request.args)
   print(db)
   keyword = request.args.get("keyword")
+  if keyword == None:
+    return redirect("/")
   if keyword in db:
     print("이미 검색한거")
     jobs = db[keyword]
